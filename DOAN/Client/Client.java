@@ -161,13 +161,29 @@ public class Client implements Runnable {
 
         os.writeByte(3);
 
+
+        /*Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+
+        while (interfaces.hasMoreElements()) {
+            NetworkInterface networkInterface = interfaces.nextElement();
+            // drop inactive
+            if (!networkInterface.isUp())
+                continue;
+
+            // smth we can explore
+            Enumeration<InetAddress> addresses = networkInterface.getInetAddresses();
+            while(addresses.hasMoreElements()) {
+                InetAddress addr = addresses.nextElement();
+                System.out.println(String.format("NetInterface: name [%s], ip [%s]",
+                        networkInterface.getDisplayName(), addr.getHostAddress()));
+            }
+        }
+        */
         System.out.println("----------------");
         for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
             for (InetAddress address : Collections.list(ni.getInetAddresses())) {
-                if (address instanceof Inet4Address) {
-
+                if (!address.isLoopbackAddress() && address instanceof Inet4Address) {
                     System.out.println(address);
-                    //System.out.println(InetAddress.getLocalHost().getHostAddress());
                 }
             }
         }
