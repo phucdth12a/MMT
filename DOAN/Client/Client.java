@@ -161,7 +161,13 @@ public class Client implements Runnable {
 
         os.writeByte(3);
 
-        System.out.println(InetAddress.getLocalHost().getHostAddress());
+        InetAddress localhost = InetAddress.getLocalHost();
+        // this code assumes IPv4 is used
+        byte[] ip = localhost.getAddress();
+
+        InetAddress address = InetAddress.getByAddress(ip);
+
+        System.out.println(address);
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
