@@ -162,7 +162,7 @@ public class Client implements Runnable {
         os.writeByte(3);
 
 
-        /*Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+        Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
 
         while (interfaces.hasMoreElements()) {
             NetworkInterface networkInterface = interfaces.nextElement();
@@ -178,7 +178,7 @@ public class Client implements Runnable {
                         networkInterface.getDisplayName(), addr.getHostAddress()));
             }
         }
-        */
+        /*
         System.out.println("----------------");
         for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
             for (InetAddress address : Collections.list(ni.getInetAddresses())) {
@@ -186,7 +186,7 @@ public class Client implements Runnable {
                     System.out.println(address);
                 }
             }
-        }
+        } */
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
