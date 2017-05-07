@@ -161,7 +161,7 @@ public class Client implements Runnable {
 
         os.writeByte(3);
 
-        System.out.println(InetAddress.getLocalHost());
+        System.out.println(clientSocket.getRemoteSocketAddress());
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
